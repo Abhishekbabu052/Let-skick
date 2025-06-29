@@ -1,9 +1,253 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Team Stats</title>
+<style>
+body{width:100%;margin:0px;display:table;}
+.n {text-align: left; }
+.t {width:100%;text-align:center;color:white;height:750px;font-weight:bold;}
+.t th{width:10%;}
+.PT{font-size:15px;}
+.i{width:100%;height:740px;z-index:-1;position:absolute;}
+.r{text-align:right;width:50%;}
+.l{width:50%}
+td{font-size:12px;}
+
+</style>
+<script>
+function calculateStats() {
+    const rows = document.querySelectorAll('table.t tr');
+    rows.forEach((row, index) => {
+        // Skip header row
+        if(index === 0) return;
+        
+        const w = Number(row.querySelector('.W').textContent);
+        const d = Number(row.querySelector('.D').textContent);
+        const l = Number(row.querySelector('.L').textContent);
+        const gf = Number(row.querySelector('.GF').textContent);
+        const ga = Number(row.querySelector('.GA').textContent);
+        
+        const pts = (w * 3) + d;
+        const mp = w + d + l;
+        const gd = gf - ga;
+        
+        row.querySelector('.PT').textContent = pts;
+        row.querySelector('.MP').textContent = mp;
+        row.querySelector('.GD').textContent = gd;
+    });
+}
+
+window.onload = calculateStats;
+</script>
 </head>
 <body>
-<h1>Feelz start</h1>
+<small>
+<img class="i" src="https://i.ibb.co/35DBGBGP/Chat-GPT-Image-Jun-21-2025-12-23-40-PM.png">
+<table class="t">
+<tr>
+    <th>ㅤ</th>
+    <th>NAME</th>
+    <th>P</th>
+    <th>MP</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>F</th>
+    <th>A</th>
+    <th>GD</th>
+</tr>
+
+<tr>
+    <td><!--1-->✅</td>
+    <td class="n">ABHIN</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">1</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">2</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--2-->✅</td>
+    <td class="n">PANDU</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">1</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">3</td>
+    <td class="GA">1</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--3-->✅</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--4-->✅</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--5-->✅</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--6-->✅</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--7-->❌</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--8-->❌</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--9-->❌</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--10-->❌</td>
+    <td class="n">A</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">0</td>
+    <td class="GF">0</td>
+    <td class="GA">0</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--11-->❌</td>
+    <td class="n">FREDDY</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">1</td>
+    <td class="GF">1</td>
+    <td class="GA">3</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+<tr>
+    <td><!--12-->❌</td>
+    <td class="n">ABHISHEK</td>
+<td class="PT"><!--NOT NEED--></td>
+<td class="MP"><!--NOT NEED--></td>   
+    <td class=" W">0</td>
+    <td class=" D">0</td>
+    <td class=" L">1</td>
+    <td class="GF">0</td>
+    <td class="GA">2</td>
+<td class="GD"><!--NOT NEED--></td>
+</tr>
+
+</table>
+
+<table style="width:100%">
+<caption>MATCHDAY 1</caption>
+<tr><td>ㅤ</td></tr>
+
+<tr>
+<td class="l">KARA</td>
+<td>VS</td>
+<td class="r">PS</td>
+</tr>
+<tr><td>ㅤ</td></tr>
+
+<tr>
+<td class="l">BINS</td>
+<td>VS</td>
+<td class="r">AKSHAY</td>
+</tr>
+<tr><td>ㅤ</td></tr>
+
+<tr>
+<td class="l">ASWIN</td>
+<td>VS</td>
+<td class="r">GOUTHAM</td>
+</tr>
+<tr><td>ㅤ</td></tr>
+
+<tr>
+<td class="l">AJAY</td>
+<td>VS</td>
+<td class="r">ADITHYAN</td>
+</tr>
+<tr><td>ㅤ</td></tr>
+
+</table>
+</small>
 </body>
-</html>
+  </html>
