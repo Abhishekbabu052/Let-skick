@@ -1,40 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team Stats</title>
-<style>
-body{width:100%;margin:0px;display:table;font-family: 'Signika Negative', sans-serif;}
-.n {text-align: left; }
-.t {width:100%;text-align:center;color:white;height:750px;font-weight:bold;}
-.t th{width:10%;}
-.PT{font-size:14px;}
-.i{width:100%;height:740px;z-index:-1;position:absolute;}
-.r{text-align:right;width:50%;}
-.l{width:50%}
-td{font-size:11px;}
-caption{font-weight:bold;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MediKart HOME - Online Medical Store</title>
 
-</style>
-<script>
-function calculateStats() {
-    const rows = document.querySelectorAll('table.t tr');
-    rows.forEach((row, index) => {
-        // Skip header row
-        if(index === 0) return;
-        
-        const w = Number(row.querySelector('.W').textContent);
-        const d = Number(row.querySelector('.D').textContent);
-        const l = Number(row.querySelector('.L').textContent);
-        const gf = Number(row.querySelector('.GF').textContent);
-        const ga = Number(row.querySelector('.GA').textContent);
-        
-        const pts = (w * 3) + d;
-        const mp = w + d + l;
-        const gd = gf - ga;
-        
-        row.querySelector('.PT').textContent = pts;
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #f0fdfd;
+    }
+    /* Header */
+    header {
+      background-color: #0b7c88;
+      padding: 1rem 2rem;
+      color: white;
+      position: relative;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo span {
+      font-size: 2rem;
+      font-weight: 600;
+      animation: slideIn 1s ease-out forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    /* Floating Admin Icon */
+    .admin-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+    .admin-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+    .admin-icon img:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    /* Banner */
+    .banner {
+      height: 100vh;
+      background: linear-gradient(rgba(11, 124, 136, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7c2f1da46f?auto=format&fit=crop&w=1500&q=80')
+        no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .banner-overlay h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .banner-overlay p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .banner button {
+      margin-top: 2rem;
+      padding: 0.9rem 1.8rem;
+      background: linear-gradient(135deg, #00b7c5, #00798c);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .banner button:hover {
+      background: linear-gradient(135deg, #00798c, #00b7c5);
+      transform: scale(1.05);
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    /* Contact Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background-color: #eef9fa;
+      text-align: center;
+    }
+    .contact-icon {
+      width: 50px;
+      margin-bottom: 1rem;
+    }
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #0b7c88;
+    }
+    .contact-section p {
+      margin: 0.3rem 0;
+    }
+    /* Footer */
+    footer {
+      background-color: #0b7c88;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (max-width: 600px) {
+      .banner-overlay h1 {
+        font-size: 2rem;
+      }
+      .banner-overlay p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Admin Icon -->
+  <div class="admin-icon">
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin" title="Admin Panel" /></a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>MediKart</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="banner-overlay">
+      <h1>Welcome to MediKart</h1>
+      <p>Your trusted source for medicines and healthcare</p>
+      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2 data-aos="fade-up">Contact Us</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Contact Icon" class="contact-icon" />
+    <p>Email: support@medikart.com</p>
+    <p>Phone: +1 234 567 890</p>
+    <p>Address: 123 Health Street, Wellness City</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MediKart. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+</body>
+</html>
+row.querySelector('.PT').textContent = pts;
         row.querySelector('.MP').textContent = mp;
         row.querySelector('.GD').textContent = gd;
     });
